@@ -1,0 +1,66 @@
+[
+  {
+      "DealerPartNumber": "SCO AC87",
+      "UniversalProductCode": "817272010015",
+      "ManufacturerPartNumber": "SCO AC87",
+      "Quantity": 10,
+      "Price": 9.0000,
+      "AllowBackorder": false
+  },
+  {
+      "DealerPartNumber": "Griffin TMTP",
+      "UniversalProductCode": "791154082287",
+      "ManufacturerPartNumber": "Griffin TMTP",
+      "Quantity": 8,
+      "Price": 11.0000,
+      "AllowBackorder": false
+  },
+  {
+      "DealerPartNumber": "SCO AC6",
+      "UniversalProductCode": "817272010138",
+      "ManufacturerPartNumber": "SCO AC6",
+      "Quantity": 10,
+      "Price": 11.0000,
+      "AllowBackorder": false
+  },
+  {
+      "DealerPartNumber": "DA DM3000",
+      "UniversalProductCode": "043125910700",
+      "ManufacturerPartNumber": "DA DM3000",
+      "Quantity": 10,
+      "Price": 12.0000,
+      "AllowBackorder": false
+  },
+  {
+      "DealerPartNumber": "yhm-rifle-thread-protectors",
+      "UniversalProductCode": "816701013955",
+      "ManufacturerPartNumber": "YHM-3414-B",
+      "Quantity": 10,
+      "Price": 13.5800,
+      "AllowBackorder": false
+  },
+  {
+      "DealerPartNumber": "DA DA203",
+      "UniversalProductCode": "043125910151",
+      "ManufacturerPartNumber": "DA DA203",
+      "Quantity": 10,
+      "Price": 15.0000,
+      "AllowBackorder": false
+  },
+  {
+      "DealerPartNumber": "DA DA208",
+      "UniversalProductCode": "043125911172",
+      "ManufacturerPartNumber": "DA DA208",
+      "Quantity": 10,
+      "Price": 15.0000,
+      "AllowBackorder": false
+  },
+  {
+      "DealerPartNumber": "yhm-universal-pistol-adapters",
+      "UniversalProductCode": "816701013832",
+      "ManufacturerPartNumber": "YHM-3154-ML",
+      "Quantity": 10,
+      "Price": 17.4600,
+      "AllowBackorder": false
+  }
+]

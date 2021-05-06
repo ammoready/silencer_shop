@@ -1,6 +1,5 @@
 require 'silencer_shop/api'
 require 'silencer_shop/product_feed'
-require 'silencer_shop/order'
 
 module SilencerShop
   class Client < Base
@@ -18,10 +17,6 @@ module SilencerShop
 
     def product_feed
       @product_feed ||= SilencerShop::ProductFeed.new(self)
-    end
-
-    def order
-      @order ||= SilencerShop::Order.new(self)
     end
 
     private

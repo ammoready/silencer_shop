@@ -45,7 +45,8 @@ module SilencerShop
           restrictions_info: item[:RestrictionsInfo],
           size_info: item[:SizeInfo],
           is_restricted: item[:IsRestricted],
-          dropship_ok: item[:DropShipOk]
+          dropship_ok: item[:DropShipOk],
+          image_name: item[:LargeImagePath].split('/')[-1]
         }
       }
     end

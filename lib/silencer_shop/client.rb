@@ -1,5 +1,6 @@
 require 'silencer_shop/api'
 require 'silencer_shop/dealer'
+require 'silencer_shop/order'
 require 'silencer_shop/product_feed'
 
 module SilencerShop
@@ -18,6 +19,10 @@ module SilencerShop
 
     def product_feed
       @product_feed ||= SilencerShop::ProductFeed.new(self)
+    end
+
+    def order
+      @order ||= SilencerShop::Order.new(self)
     end
 
     def dealer

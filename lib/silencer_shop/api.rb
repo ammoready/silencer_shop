@@ -3,9 +3,11 @@ require 'net/http'
 module SilencerShop
   module API
 
-    ROOT_API_URL = 'https://silencershopportaldebug.azurewebsites.net/api'.freeze
     USER_AGENT = "SilencerShopRubyGem/#{SilencerShop::VERSION}".freeze
-
+    API_URL = {
+      development: 'https://silencershopportaldebug.azurewebsites.net/api'.freeze,
+      production:  '<waiting for this value>'.freeze
+    }
     FILE_UPLOAD_ATTRS = {
       permitted: %i( file_name file_type file_contents ).freeze,
       reqired:   %i( file_type file_contents ).freeze,
@@ -91,7 +93,7 @@ module SilencerShop
     end
 
     def request_url(endpoint, root_url = nil)
-      root_url ||= ROOT_API_URL
+      root_url ||= (SilencerShop.sandbox? ? API_URL[:development] : API_URL[:production])
 
       [root_url, endpoint].join('/')
     end

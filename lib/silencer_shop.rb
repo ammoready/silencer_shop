@@ -26,13 +26,18 @@ module SilencerShop
     yield(config)
   end
 
+  def self.sandbox?
+    !!@sandbox
+  end
+
+
   class Configuration
-    attr_accessor :proxy_address
-    attr_accessor :proxy_port
+    attr_accessor :proxy_address, :proxy_port, :sandbox
 
     def initialize
       @proxy_address ||= nil
       @proxy_port    ||= nil
+      @sandbox       ||= true
     end
   end
 

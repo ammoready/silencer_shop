@@ -8,6 +8,15 @@ module SilencerShop
 
     include SilencerShop::API
 
+    TOKEN_RESOURCE = {
+      development: 'https://silencershopstaging.onmicrosoft.com/SilencerShop.Portal'.freeze,
+      production:  '<waiting for this value>'.freeze
+    }
+    TOKEN_URL = {
+      development: 'silencershopstaging.onmicrosoft.com/oauth2/token'.freeze,
+      production:  '<waiting for this value'.freeze
+    }
+
     attr_accessor :access_token
 
     def initialize(options = {})
@@ -32,15 +41,17 @@ module SilencerShop
     private
 
     def authenticate!
+      environment = SilencerShop.sandbox? ? :development : :production
+      token_resource, token_url = [TOKEN_RESOURCE[environment], TOKEN_URL[environment]]
       request_data = [
-        ['resource', CGI.escape('https://silencershopstaging.onmicrosoft.com/SilencerShop.Portal')],
         ['grant_type', 'client_credentials'],
+        ['resource', CGI.escape(token_resource)],
         ['client_id', CGI.escape(@options[:username])],
         ['client_secret', CGI.escape(@options[:password])]
       ].map { |a| a.join('=') }.join('&')
 
       response = post_request(
-        'silencershopstaging.onmicrosoft.com/oauth2/token',
+        token_url,
         request_data,
         content_type_header('application/x-www-form-urlencoded'),
         'https://login.microsoftonline.com'

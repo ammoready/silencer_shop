@@ -21,7 +21,11 @@ module SilencerShop
           _data.map(&:deep_symbolize_keys)
         end
       else
-        raise SilencerShop::Error::RequestError.new(@response.body)
+        if @response.body =~ /unable to verify credentials/i
+          SilencerShop::Error::NotAuthorized.new(@response.body)
+        else
+          raise SilencerShop::Error::RequestError.new(@response.body)
+        end
       end
     end
 

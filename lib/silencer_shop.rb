@@ -27,7 +27,7 @@ module SilencerShop
   end
 
   def self.sandbox?
-    !!@sandbox
+    !!config.sandbox
   end
 
 

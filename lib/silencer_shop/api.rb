@@ -6,7 +6,7 @@ module SilencerShop
     USER_AGENT = "SilencerShopRubyGem/#{SilencerShop::VERSION}".freeze
     API_URL = {
       development: 'https://silencershopportaldebug.azurewebsites.net/api'.freeze,
-      production:  '<waiting for this value>'.freeze
+      production:  'https://silencershopportal.azurewebsites.net/api'.freeze
     }
     FILE_UPLOAD_ATTRS = {
       permitted: %i( file_name file_type file_contents ).freeze,

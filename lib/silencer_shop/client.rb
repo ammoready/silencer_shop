@@ -10,11 +10,11 @@ module SilencerShop
 
     TOKEN_RESOURCE = {
       development: 'https://silencershopstaging.onmicrosoft.com/SilencerShop.Portal'.freeze,
-      production:  '<waiting for this value>'.freeze
+      production:  'https://silencershopsso.onmicrosoft.com/SilencerShop.Portal'.freeze
     }
     TOKEN_URL = {
       development: 'silencershopstaging.onmicrosoft.com/oauth2/token'.freeze,
-      production:  '<waiting for this value'.freeze
+      production:  'silencershopsso.onmicrosoft.com/oauth2/token'.freeze
     }
 
     attr_accessor :access_token

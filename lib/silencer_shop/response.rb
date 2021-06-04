@@ -1,6 +1,8 @@
 module SilencerShop
   class Response
 
+    attr_accessor :success
+
     def initialize(response)
       @response = response
 
@@ -12,6 +14,7 @@ module SilencerShop
       when Net::HTTPNoContent
         SilencerShop::Error::NoContent.new(@response.body)
       when Net::HTTPOK, Net::HTTPSuccess
+        self.success = true
         _data = (JSON.parse(@response.body) if @response.body.present?)
 
         @data = case
@@ -42,7 +45,7 @@ module SilencerShop
     end
 
     def success?
-      !!self[:success] && self[:errors].empty?
+      !!success
     end
 
   end

@@ -14,15 +14,19 @@ module SilencerShop
       when Net::HTTPNoContent
         SilencerShop::Error::NoContent.new(@response.body)
       when Net::HTTPOK, Net::HTTPSuccess
-        self.success = true
-        _data = (JSON.parse(@response.body) if @response.body.present?)
-
         @data = case
         when _data.is_a?(Hash)
           _data.deep_symbolize_keys
         when _data.is_a?(Array)
           _data.map(&:deep_symbolize_keys)
         end
+
+        if @data.has_key?(:ErrorMessage)
+          raise SilencerShop::Error::RequestError.new(@response.body)
+        end
+
+        self.success = true
+        _data = (JSON.parse(@response.body) if @response.body.present?)
       else
         if @response.body =~ /unable to verify credentials/i
           SilencerShop::Error::NotAuthorized.new(@response.body)

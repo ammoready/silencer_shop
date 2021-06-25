@@ -22,7 +22,7 @@ module SilencerShop
           _data.map(&:deep_symbolize_keys)
         end
 
-        if @data.has_key?(:ErrorMessage)
+        if @data.is_a?(Hash) && @data.has_key?(:ErrorMessage)
           raise SilencerShop::Error::RequestError.new(@response.body)
         end
 

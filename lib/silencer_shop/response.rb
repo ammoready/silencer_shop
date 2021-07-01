@@ -23,7 +23,7 @@ module SilencerShop
         end
 
         if @data.is_a?(Hash) && @data.has_key?(:ErrorMessage)
-          raise SilencerShop::Error::RequestError.new(@response.body)
+          raise SilencerShop::Error::RequestError.new(@data[:ErrorMessage])
         end
 
         self.success = true

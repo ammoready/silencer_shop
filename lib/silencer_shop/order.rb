@@ -9,12 +9,12 @@ module SilencerShop
       permitted: %i(
         purchase_order account_number other_information notes customer_email customer_phone
         customer_name company_name address_line_1 address_line_2 ffl_information city state
-        zip shipping_method sales_tax_collected line_items dealer_part_number quantity price
-        universal_product_code description
+        zip shipping_method sales_tax_collected line_items manufacturer_part_number quantity
+        price universal_product_code description
       ).freeze,
       required: %i(
         purchase_order ffl_information customer_email customer_phone customer_name
-        address_line_1 city state zip line_items dealer_part_number quantity
+        address_line_1 city state zip line_items manufacturer_part_number quantity
       ).freeze
     }
 

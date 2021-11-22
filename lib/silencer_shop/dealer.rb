@@ -14,11 +14,14 @@ module SilencerShop
     end
 
     def confirmed?(dealer_username: '', dealer_password: '')
-      post_request(
-        ENDPOINTS[:confirmed],
-        { username: dealer_username, password: dealer_password },
-        auth_header(@client.access_token)
-      ).success?
+      endpoint = ENDPOINTS[:confirmed]
+      creds = { username: dealer_username, password: dealer_password }
+      headers = [
+        *auth_header(@client.access_token),
+        *content_type_header('application/json'),
+      ].to_h
+
+      post_request(endpoint, creds, headers).success?
     end
 
   end
